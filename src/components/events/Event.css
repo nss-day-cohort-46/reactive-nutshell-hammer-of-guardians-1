@@ -1,0 +1,28 @@
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .eventCard:hover {
+    background-color: rgb(173, 180, 204);
+    border: rgb(29, 29, 29) solid 1px;
+  }
+  
+  .eventCard {
+      border-radius: 30px;
+      flex-basis: 28%;
+      margin: 1em;
+      padding: 1em;
+      border: 1px solid rgb(167, 171, 235);
+  }
+
+  .eventHeader {
+      padding: 10px 0 0 0;
+      text-align: center;
+  }
+
+.eventTitle {
+    font-size: 20px;
+  }
