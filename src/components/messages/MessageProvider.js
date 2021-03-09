@@ -15,11 +15,22 @@ export const MessageProvider = (props) => {
     }
 
     // Will also need fetch calls with a POST and DELETE Method.
+    const addMessage = messageObj => {
+        return fetch("http://localhost:8088/messages", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(messageObj)
+        })
+        .then(response => response.json())
+    }
+
     
     // MessageProvider returns MessageContext.Provider.
     return (
         <MessageContext.Provider value={{
-            messages, getMessages
+            messages, getMessages, addMessage
             }}>
                 {props.children}
         </MessageContext.Provider>

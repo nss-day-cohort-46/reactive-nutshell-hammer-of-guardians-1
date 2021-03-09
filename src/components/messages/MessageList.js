@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { MessageContext } from "./MessageProvider"
 import { MessageCard } from "./MessageCard"
-// import { useParams, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import "./Message.css"
 
 // Make MessageList function, import Message Context, useContext(MessageContext), bring in messages, getMessages
@@ -11,6 +11,8 @@ export const MessageList = () => {
     
     // Setting state to an empty array, declaring our state variable of Message, and our callback function of setMessages
     const [message, setMessages] = useState([])
+
+    const history = useHistory();
     
     // useEffect will call getMessages(), our dependency array will remain empty. This will not run again.
     useEffect(() => {
@@ -35,9 +37,7 @@ export const MessageList = () => {
                     return <MessageCard key={message.id} message={message} user={message.user} />
                 })}
             </div>
-            <button className="message__button"
-            // onClick={() => { history.push("/messages/create") }}
-            >
+            <button className="btn btn-primary" onClick={() => { history.push("/messages/create") }}>
                 Add Message
             </button>
         </div>

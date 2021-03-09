@@ -4,6 +4,7 @@ import { ArticleList } from "./articles/ArticleList"
 import { ArticleProvider } from "./articles/ArticleProvider"
 import { MessageList } from "./messages/MessageList"
 import { MessageProvider } from "./messages/MessageProvider"
+import { MessageForm } from "./messages/MessageForm"
 // import { TaskProvider } from "./tasks/TaskProvider"
 // import { FriendProvider } from "./friends/FriendProvider"
 import { EventProvider } from "./events/EventProvider"
@@ -60,6 +61,11 @@ export const ApplicationViews = () => {
          <Route path="/messages">
            {/* Render the component for the messages */}
            <MessageList />
+         </Route>
+         
+         <Route path="/messages/create">
+           {/* Render the component for the messages */}
+           <MessageForm />
          </Route>
 
                </EventProvider>

@@ -31,7 +31,16 @@
     font-size: 20px;
   }
 
-.message__button {
+.btn-primary {
       text-align: center;
       margin: 1em 1em 1em 12em;
+  }
+
+  .messageForm {
+    margin: 1em 10em;
+    padding: 1em;
+  }
+
+  .form-group {
+    margin: 1em 10em;
   }
