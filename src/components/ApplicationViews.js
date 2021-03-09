@@ -4,7 +4,7 @@ import { ArticleList } from "./articles/ArticleList"
 import { ArticleProvider } from "./articles/ArticleProvider"
 import { TaskProvider } from "./tasks/TaskProvider"
 import { MessageProvider } from "./messages/MessageProvider"
-import { FriendContext, FriendProvider } from "./friends/FriendProvider"
+import { FriendProvider } from "./friends/FriendProvider"
 import { EventProvider } from "./events/EventProvider"
 
 export const ApplicationViews = () => {
@@ -16,7 +16,7 @@ export const ApplicationViews = () => {
       <ArticleProvider>
         <TaskProvider>
           <MessageProvider>
-            <FriendContext>
+            <FriendProvider>
               <EventProvider>
 
         <Route exact path="/">
@@ -25,7 +25,7 @@ export const ApplicationViews = () => {
         </Route>
 
               </EventProvider>
-            </FriendContext>
+            </FriendProvider>
           </MessageProvider>
         </TaskProvider>
       </ArticleProvider>
@@ -35,7 +35,7 @@ export const ApplicationViews = () => {
       <ArticleProvider>
         <TaskProvider>
           <MessageProvider>
-            <FriendContext>
+            <FriendProvider>
               <EventProvider>
 
         <Route path="/friends">
@@ -43,7 +43,7 @@ export const ApplicationViews = () => {
         </Route>
 
               </EventProvider>
-            </FriendContext>
+            </FriendProvider>
           </MessageProvider>
         </TaskProvider>
       </ArticleProvider>
@@ -53,7 +53,7 @@ export const ApplicationViews = () => {
       <ArticleProvider>
         <TaskProvider>
           <MessageProvider>
-            <FriendContext>
+            <FriendProvider>
               <EventProvider>
 
         <Route path="/messages">
@@ -61,7 +61,7 @@ export const ApplicationViews = () => {
         </Route>
 
               </EventProvider>
-            </FriendContext>
+            </FriendProvider>
           </MessageProvider>
         </TaskProvider>
       </ArticleProvider>
@@ -71,7 +71,7 @@ export const ApplicationViews = () => {
       <ArticleProvider>
         <TaskProvider>
           <MessageProvider>
-            <FriendContext>
+            <FriendProvider>
               <EventProvider>
 
         <Route path="/tasks">
@@ -79,7 +79,7 @@ export const ApplicationViews = () => {
         </Route>
 
               </EventProvider>
-            </FriendContext>
+            </FriendProvider>
           </MessageProvider>
         </TaskProvider>
       </ArticleProvider>
@@ -89,7 +89,7 @@ export const ApplicationViews = () => {
       <ArticleProvider>
         <TaskProvider>
           <MessageProvider>
-            <FriendContext>
+            <FriendProvider>
               <EventProvider>
               
         <Route path="/events">
@@ -97,7 +97,7 @@ export const ApplicationViews = () => {
         </Route>
 
               </EventProvider>
-            </FriendContext>
+            </FriendProvider>
           </MessageProvider>
         </TaskProvider>
       </ArticleProvider>
