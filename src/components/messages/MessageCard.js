@@ -18,9 +18,8 @@ import "./Message.css"
 
 export const MessageCard = ({ message, user }) => (
     <section className="message">
-        <h3> {message.userId} </h3>
-        <div className="message__user">{message.user?.name}</div>
+        <div className="message__user">{user?.name}</div>
         <div className="message__time">{message.time}</div>
-        <div className="message__message">{message.list}</div>
+        <div className="message__text">{message.text}</div>
     </section>
 )
