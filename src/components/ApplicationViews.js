@@ -6,6 +6,7 @@ import { TaskProvider } from "./tasks/TaskProvider"
 import { MessageProvider } from "./messages/MessageProvider"
 import { FriendProvider } from "./friends/FriendProvider"
 import { EventProvider } from "./events/EventProvider"
+import { ArticleForm } from "./articles/ArticleForm"
 
 export const ApplicationViews = () => {
   return (
@@ -22,6 +23,10 @@ export const ApplicationViews = () => {
         <Route exact path="/">
           <ArticleList />        
         {/* Render the component for news articles */}
+        </Route>
+
+        <Route path="/articles/create">
+          <ArticleForm />
         </Route>
 
               </EventProvider>

@@ -12,18 +12,18 @@ export const FriendProvider = (props) => {
         .then(setFriends)
     }
 
-    const addFriend = articleObj => {
+    const addFriend = friendObj => {
         return fetch("http://localhost:8088/friends", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(articleObj)
+            body: JSON.stringify(friendObj)
         })
         .then(getFriends)
     }
 
-    const deleteFriend = articleId => {
+    const deleteFriend = friendId => {
         return fetch(`http://localhost:8088/articles/${friendId}`, {
             method: "DELETE"
         })
