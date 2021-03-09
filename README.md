@@ -75,3 +75,10 @@ You will be using [session storage](https://javascript.info/localstorage#session
    * Short paragraphs
    * Bulleted lists
 7. Strive for consistency.
+
+
+Dependency Diagram Link
+https://www.figma.com/file/dcqR4yAID9dDB0h5lyU5og/Hammer-of-Guardians-Dependency?node-id=0%3A1
+
+ERD Link
+https://dbdiagram.io/d/60465fa3fcdcb6230b232146
