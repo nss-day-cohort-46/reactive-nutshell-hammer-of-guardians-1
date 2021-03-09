@@ -9,7 +9,6 @@ set value equal to article useState variable, get request, post, and delete func
 
 Will also need fetch calls with a POST and DELETE Method.
 */
-
 export const ArticleContext = createContext()
 
 export const ArticleProvider = (props) => {
@@ -33,7 +32,7 @@ export const ArticleProvider = (props) => {
         .then(getArticles)
     }
 
-    const articleDelete = articleId => {
+    const deleteArticle = articleId => {
         return fetch(`http://localhost:8088/articles/${articleId}`, {
             method: "DELETE"
         })
@@ -43,7 +42,7 @@ export const ArticleProvider = (props) => {
 
     return (
        <ArticleContext.Provider value={{
-           articles, getArticles, addArticle, articleDelete
+           articles, getArticles, addArticle, deleteArticle
        }}>
            {props.children}
        </ArticleContext.Provider>
