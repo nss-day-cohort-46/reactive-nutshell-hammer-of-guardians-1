@@ -14,3 +14,30 @@ Add Article button with onClick which will push us to /articles/create
 
 ..
  */
+import { useContext, useEffect } from "react"
+import { ArticleContext } from "./ArticleProvider"
+import { ArticleCard } from "./ArticleCard"
+import "./Article.css"
+
+export const ArticleList = () => {
+    const { articles, getArticles } = useContext(ArticleContext)
+
+    useEffect(() => {
+        getArticles()
+    }, [])
+
+    return (
+        <>
+        <h3 className="articleHeader">Articles</h3>
+        <div className="articles">
+            {
+                articles.map(article => {
+                    return <ArticleCard key={article.id} article={article} />
+                })
+            }
+        </div>
+        
+        </>
+
+    )
+}
