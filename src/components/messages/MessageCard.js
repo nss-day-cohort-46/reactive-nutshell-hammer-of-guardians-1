@@ -1,5 +1,4 @@
-/*Import react hooks, message context, message.css,
-useHistory and usePrams from react-router-dom 
+/*Import react hooks, message context, message.css, useHistory and usePrams from react-router-dom 
 useContext message Context {message delete function}
 useHistory()
 define MessageDelete function call deletemessagefunction(message.id)
