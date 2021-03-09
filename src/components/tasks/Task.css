@@ -1,27 +1,27 @@
-.articles {
+.tasks {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
 }
 
-.articleCard:hover {
+.taskCard:hover {
     background-color: rgb(173, 180, 204);
     border: rgb(29, 29, 29) solid 1px;
 }
 
-.articleCard {
+.taskCard {
     border-radius: 30px;
     flex-basis: 28%;
     margin: 1em;
     padding: 1em;
     border: 1px solid rgb(167, 171, 235);
 }
-.articleHeader {
+.taskHeader {
     padding: 10px 0 0 0;
     text-align: center;
 }
 
-.articleTitle {
+.taskTitle {
     font-size: 20px;
 } 
