@@ -15,10 +15,8 @@ Add Article button with onClick which will push us to /articles/create
 ..
  */
 
-import React, { useContext, useEffect } from "react"
-import { AnimalContext } from "./AnimalProvider"
-import { LocationContext } from "../locations/LocationProvider"
-import { CustomerContext } from "../customers/CustomerProvider"
-import { useHistory } from "react-router-dom"
-import { AnimalCard } from "./AnimalCard"
-import "./Animal.css"
+// import React, { useContext, useEffect } from "react"
+// import { MessageContext } from "./MessageProvider"
+// import { useHistory } from "react-router-dom"
+// import { MessageCard } from "./MessageCard"
+// import "./Message.css"
