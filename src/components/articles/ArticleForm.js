@@ -33,10 +33,10 @@ export const ArticleForm = () => {
             window.alert("Please complete all fields")
         } else {
             addArticle({
-                url: "",
-                title: "",
-                synopsis: "",
-                timestamp: "" 
+                url: article.url,
+                title: article.title,
+                synopsis: article.synopsis,
+                timestamp: article.timestamp 
             })
             .then(() => history.push(`/articles`)) 
         }        
