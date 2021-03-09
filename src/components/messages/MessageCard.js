@@ -1,25 +1,26 @@
-/*Import react hooks, article context, article.css,
+/*Import react hooks, message context, message.css,
 useHistory and usePrams from react-router-dom 
-useContext Article Context {article delete function}
+useContext message Context {message delete function}
 useHistory()
-define articleDelete function call deletearticlefunction(article.id)
-.then push "/articles"
+define MessageDelete function call deletemessagefunction(message.id)
+.then push "/messages"
 maybe a useEffect goes here????
 
-Create ArticleCard function, pass in {article}.
+Create MessageCard function, pass in {message}.
 returns the html representation of the card.
-Use dot notation to access each article property.
-Include a delete button that is tied to each articles id.
-Our delete button will include an onClick which calls our articleDelete Function.
+Use dot notation to access each message property.
+Include a delete button that is tied to each messages id.
+Our delete button will include an onClick which calls our messageDelete Function.
  */
 
 import React from "react"
 import "./Message.css"
-import { Link } from "react-router-dom"
 
-export const MessageCard = ({ message }) => (
+export const MessageCard = ({ message, user }) => (
     <section className="message">
-        <h3> Message </h3>
-        <div className="message__text">{message.text}</div>
+        <h3> {message.userId} </h3>
+        <div className="message__user">{message.user?.name}</div>
+        <div className="message__time">{message.time}</div>
+        <div className="message__message">{message.list}</div>
     </section>
 )

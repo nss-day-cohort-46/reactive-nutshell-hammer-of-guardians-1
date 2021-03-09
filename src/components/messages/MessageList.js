@@ -1,22 +1,43 @@
-/*Import history from react router dom, useEffect useContext useState from react
-Import Article Card, Article.css. 
-Make ArticleList function, import Article Context, useContext(ArticleContext), bring in
-{articles, getArticles} via context.
-Setting state to an empty array, declaring our state variable of article, and our callback
-function of setArticles.
-const [articles, setArticles] = useState([])
-useEffect will call getArticles(), our dependency array will remain empty.
-This will not run again.
-ArticleList will return the html representation for our Articles page. 
-article.map() for every article return ArticleCard with a key of {article.id}
-and article={article}.
-Add Article button with onClick which will push us to /articles/create
+// Import history from react router dom, useEffect useContext useState from react and Message Card, Message.css.
+import React, { useContext, useEffect } from "react"
+import { MessageContext } from "./MessageProvider"
+import { MessageCard } from "./MessageCard"
+import { useParams, useHistory } from "react-router-dom"
+import "./Message.css"
 
-..
- */
+// Make MessageList function, import Message Context, useContext(MessageContext), bring in messages, getMessages
+export const MessageList = () => {
+    const { messages, getMessages } = useContext(MessageContext)
+    
+    // Setting state to an empty array, declaring our state variable of Message, and our callback function of setMessages
+    const [messages, setMessages] = useState([])
+    
+    // useEffect will call getMessages(), our dependency array will remain empty. This will not run again.
+    useEffect(() => {
+        console.log("MessageList: useEffect - getMessages")
+        getMessages()
+        .then((response) => {
+            setAnimal(response)
+          })
+    }, [])
+    
+    // MessageList will return the html representation for our Messages page. 
+    // Add Message button with onClick which will push us to /Messages/create
+    // Message.map() for every Message return MessageCard with a key of {Message.id} and Message={Message}.
+    
+    return (
+        <>
+            {console.log("MessageList: Render", messages)}
+            <h2>Messages</h2>
 
-// import React, { useContext, useEffect } from "react"
-// import { MessageContext } from "./MessageProvider"
-// import { useHistory } from "react-router-dom"
-// import { MessageCard } from "./MessageCard"
-// import "./Message.css"
+            <div className="messages">
+                {messages.map(message => {
+                    return <MessageCard key={message.id} message={message} user={message.user} />
+                })}
+            </div>
+            <button onClick={() => { history.push("/messages/create") }}>
+                Add Message
+            </button>
+        </>
+    )
+}
