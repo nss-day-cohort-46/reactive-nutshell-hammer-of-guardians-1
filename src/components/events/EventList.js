@@ -20,6 +20,7 @@ export const EventList = () => {
                     })
                 }   
             </div>
+            <button className="event__button">Add Event</button>
         </>
     )
 }
