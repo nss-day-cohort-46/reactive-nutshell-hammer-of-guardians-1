@@ -15,7 +15,7 @@ export const EventList = () => {
             <h3 className="eventHeader">Events</h3>
             <div className="events">
                 {
-                    articles.map(event => {
+                    events.map(event => {
                        return <EventCard key={event.id} event={event} />
                     })
                 }   
