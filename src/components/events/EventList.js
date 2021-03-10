@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import { EventContext } from "./EventProvider"
 import { EventCard } from "./EventCard"
 import "./Event.css"
+import { useHistory } from "react-router"
 
 export const EventList = () => {
     const { events, getEvents } = useContext(EventContext)
@@ -20,7 +21,9 @@ export const EventList = () => {
                     })
                 }   
             </div>
-            <button className="event__button">Add Event</button>
+            <div className="eventButtonDiv">
+                <button className="event__button">Add Event</button>
+            </div>
         </>
     )
 }
