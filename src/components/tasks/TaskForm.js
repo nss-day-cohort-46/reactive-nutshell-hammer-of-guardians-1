@@ -61,8 +61,7 @@ export const TaskForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="date">Due Date: </label>
-                    <input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Due Date" value={task.dueDate} />
+                    <label htmlFor="date">Due Date: </label>                    <input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Due Date" value={task.dueDate} />
                 </div>
             </fieldset>
             
