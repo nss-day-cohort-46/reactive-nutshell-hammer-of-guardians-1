@@ -29,7 +29,7 @@ export const ArticleForm = () => {
     }
 
     const handleSaveArticle = () => {
-        if (article.url === "" || article.title === "" || article.synopsis === "" || article.timestamp === 0 ) {
+        if (article.url === "" || article.title === "" || article.synopsis === "" || article.timestamp === "" ) {
             window.alert("Please complete all fields")
         } else {
             addArticle({
@@ -51,8 +51,8 @@ export const ArticleForm = () => {
                     <input type="text" id="title" onChange={handleControlledInputChange} required className="form-control" placeholder="Article Title" value={article.title}></input>
                 </div>
                 <div>
-                    <label htmlFor="timestamp">Date: </label>
-                    <input type="date" id="date" onChange={handleControlledInputChange} required className="form-control" value={article.timestamp}></input>
+                    <label htmlFor="date">Date: </label>
+                    <input type="date" id="timestamp" onChange={handleControlledInputChange} required className="form-control" value={article.timestamp}></input>
                 </div>
                 <div>
                     <label htmlFor="synopsis">Article Summary: </label>
