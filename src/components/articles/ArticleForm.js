@@ -38,7 +38,7 @@ export const ArticleForm = () => {
                 synopsis: article.synopsis,
                 timestamp: article.timestamp 
             })
-            .then(() => history.push(`/`)) 
+            .then(() => history.push("/")) 
         }        
     }
 
