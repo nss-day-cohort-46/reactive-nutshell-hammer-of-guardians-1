@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import "./Event.css"
 
 export const EventForm = () => {
-    const { addEvent } = useContext(EventContext)
+    const { addEvent, getEvents } = useContext(EventContext)
 
     const [events, setEvent] = useState({
         name: "",
@@ -19,7 +19,7 @@ export const EventForm = () => {
     }, [])
 
     const handleControlledInputChange = (event) => {
-        const newEvent = { ...event }
+        const newEvent = { ...events }
         newEvent[event.target.id] = event.target.value
         setEvent(newEvent)
     }
@@ -31,9 +31,10 @@ export const EventForm = () => {
             addEvent({
                 name: events.name,
                 location: events.location,
-                date: events.date
+                date: events.date,
+                userId: events.userId
             })
-            .then(() => history.push(`/`)) 
+            .then(() => history.push("/events")) 
         }        
     }
 
@@ -42,8 +43,8 @@ export const EventForm = () => {
             <h2 className="newEvent">New Event</h2>
             <fieldset>
                 <div>
-                    <label htmlFor="eventName">Event: </label>
-                    <input type="text" id="event" onChange={handleControlledInputChange} required className="form-control" placeholder="Event Name" value={events.name}></input>
+                    <label htmlFor="name">Event: </label>
+                    <input type="text" id="name" onChange={handleControlledInputChange} required className="form-control" placeholder="Event Name" value={events.name}></input>
                 </div>
                 <div>
                     <label htmlFor="location">Location: </label>
@@ -51,13 +52,13 @@ export const EventForm = () => {
                 </div>
                 <div>
                     <label htmlFor="date">Date: </label>
-                    <input type="date" id="timestamp" onChange={handleControlledInputChange} required className="form-control" value={events.date}></input>
+                    <input type="date" id="date" onChange={handleControlledInputChange} required className="form-control" value={events.date}></input>
                 </div>
             </fieldset>
             <button className="btn btn-primary"
               onClick={event => {
                 event.preventDefault()
-              handleSaveArticle()
+              handleClickSaveEvent()
             }}>
               Save Event
             </button>
