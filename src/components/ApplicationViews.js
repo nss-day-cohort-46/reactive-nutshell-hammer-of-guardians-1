@@ -2,20 +2,21 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { ArticleList } from "./articles/ArticleList"
 import { ArticleProvider } from "./articles/ArticleProvider"
+import { EventProvider } from "./events/EventProvider"
+import { EventList } from "./events/EventList";
 import { MessageList } from "./messages/MessageList"
 import { MessageProvider } from "./messages/MessageProvider"
 import { MessageForm } from "./messages/MessageForm"
 import { TaskProvider } from "./tasks/TaskProvider"
 import { FriendProvider } from "./friends/FriendProvider"
-import { EventProvider } from "./events/EventProvider"
 import { TaskList } from "./tasks/TaskList"
 import { ArticleForm } from "./articles/ArticleForm"
+import { EventForm } from "./events/EventForm"
 
 export const ApplicationViews = () => {
   return (
     <>
-
-     {/* ##### Articles ##### */}
+    {/* ##### Articles ##### */}
 
       <ArticleProvider>
         <TaskProvider>
@@ -37,6 +38,7 @@ export const ApplicationViews = () => {
           </MessageProvider>
         </TaskProvider>
       </ArticleProvider>
+
       
      {/* ##### Friends ##### */}
 
@@ -80,19 +82,18 @@ export const ApplicationViews = () => {
           </TaskProvider> 
        </ArticleProvider>
       
-
        {/* ##### Tasks ##### */}
 
-        <Route path="/tasks">
-          <TaskList />
-          {/* Render the component for the user's tasks */}
-        </Route>
        <ArticleProvider>
           <TaskProvider> 
            <MessageProvider>
               <FriendProvider> 
                <EventProvider>
 
+                  <Route path="/tasks">
+                    <TaskList />
+                    {/* Render the component for the user's tasks */}
+                  </Route>
 
                </EventProvider>
               </FriendProvider> 
@@ -108,15 +109,21 @@ export const ApplicationViews = () => {
               <FriendProvider> 
                <EventProvider>
               
-         <Route path="/events">
-           {/* Render the component for the user's events */}
-         </Route>
+        <Route path="/events">
+          {/* Render the component for the user's events */}
+          <EventList />
+        </Route>
+        
+        <Route path="/events/create">
+          {/* Render the component for the user's events */}
+          <EventForm />
+        </Route>
 
-               </EventProvider>
-              </FriendProvider> 
-           </MessageProvider>
-          </TaskProvider> 
-       </ArticleProvider>
-     </>
-   )
- }
+              </EventProvider>
+            </FriendProvider>
+          </MessageProvider>
+        </TaskProvider>
+      </ArticleProvider>
+    </>
+  )
+}
