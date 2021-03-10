@@ -5,6 +5,7 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import "./Nutshell.css"
+import { BrowserRouter as Router } from "react-router-dom";
 
 export const Nutshell = () => (
   <>
@@ -14,6 +15,7 @@ export const Nutshell = () => (
           return (
             <>
               <NavBar />
+              
               <ApplicationViews />
             </>
           )

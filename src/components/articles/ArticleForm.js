@@ -33,6 +33,7 @@ export const ArticleForm = () => {
             window.alert("Please complete all fields")
         } else {
             addArticle({
+                userId: article.userId,
                 url: article.url,
                 title: article.title,
                 synopsis: article.synopsis,
