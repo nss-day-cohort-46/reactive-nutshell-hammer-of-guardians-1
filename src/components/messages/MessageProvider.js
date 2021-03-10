@@ -1,29 +1,36 @@
 import React, { useState, createContext } from "react"
-/* ArticleProvider will fetch saved articles from the database.
-We will use this to render the Article List.
-Create Article Context export 
-useState([]) variables [articles, setArticles].
-ArticleProvider returns ArticleContext.Provider.
-set value equal to article useState variable, get request, post, and delete functions.
 
-
-Will also need fetch calls with a POST and DELETE Method.
-*/
-
+// Create Message Context export 
 export const MessageContext = createContext()
 
+// set value equal to Message useState variable, get request, post, and delete functions.
 export const MessageProvider = (props) => {
     const [messages, setMessages] = useState([])
-
+    
+    // MessageProvider will fetch saved Messages from the database. We will use this to render the Message List.
     const getMessages = () => {
-        return fetch("http://localhost:8088/messages")
+        return fetch("http://localhost:8088/messages?_expand=user")
         .then(res => res.json())
         .then(setMessages)
     }
 
+    // Will also need fetch calls with a POST and DELETE Method.
+    const addMessage = messageObj => {
+        return fetch("http://localhost:8088/messages", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(messageObj)
+        })
+        .then(response => response.json())
+    }
+
+    
+    // MessageProvider returns MessageContext.Provider.
     return (
         <MessageContext.Provider value={{
-            messages, getMessages
+            messages, getMessages, addMessage
             }}>
                 {props.children}
         </MessageContext.Provider>
