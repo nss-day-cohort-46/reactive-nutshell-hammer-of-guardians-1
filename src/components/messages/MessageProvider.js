@@ -23,7 +23,7 @@ export const MessageProvider = (props) => {
             },
             body: JSON.stringify(messageObj)
         })
-        .then(response => response.json())
+        .then(getMessages)
     }
 
     
