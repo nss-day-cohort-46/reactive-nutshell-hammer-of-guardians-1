@@ -40,7 +40,7 @@ export const ArticleList = () => {
             }
         </div>
         <div className="articleButtonDiv">
-            <button className="addArticleButton" onClick={() => {history.pushState("/articles/create")}}>
+            <button className="addArticleButton" onClick={() => {history.push("/articles/create")}}>
             Add Article
             </button>
         </div>
