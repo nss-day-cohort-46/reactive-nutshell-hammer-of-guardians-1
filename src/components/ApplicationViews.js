@@ -2,6 +2,8 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { ArticleList } from "./articles/ArticleList"
 import { ArticleProvider } from "./articles/ArticleProvider"
+import { EventProvider } from "./events/EventProvider"
+import { EventList } from "./events/EventList";
 import { MessageList } from "./messages/MessageList"
 import { MessageProvider } from "./messages/MessageProvider"
 import { MessageForm } from "./messages/MessageForm"
@@ -11,6 +13,7 @@ import { TaskForm } from "./tasks/TaskForm"
 import { FriendProvider } from "./friends/FriendProvider"
 import { EventProvider } from "./events/EventProvider"
 import { ArticleForm } from "./articles/ArticleForm"
+import { EventForm } from "./events/EventForm"
 
 export const ApplicationViews = () => {
   return (
@@ -106,6 +109,30 @@ export const ApplicationViews = () => {
         </TaskProvider>
       </ArticleProvider>
 
+      {/* ##### Messages ##### */}
+
+      <ArticleProvider>
+        <TaskProvider>
+          <MessageProvider>
+            <FriendProvider>
+              <EventProvider>
+
+                <Route path="/messages">
+                  {/* Render the component for the messages */}
+                  <MessageList />
+                </Route>
+
+                <Route path="/messages/create">
+                  {/* Render the component for the messages */}
+                  <MessageForm />
+                </Route>
+
+              </EventProvider>
+            </FriendProvider>
+          </MessageProvider>
+        </TaskProvider>
+      </ArticleProvider>
+
       {/* ##### Events ##### */}
 
       <ArticleProvider>
@@ -116,6 +143,12 @@ export const ApplicationViews = () => {
 
                 <Route path="/events">
                   {/* Render the component for the user's events */}
+                  <EventList />
+                </Route>
+
+                <Route path="/events/create">
+                  {/* Render the component for the user's events */}
+                  <EventForm />
                 </Route>
 
               </EventProvider>
