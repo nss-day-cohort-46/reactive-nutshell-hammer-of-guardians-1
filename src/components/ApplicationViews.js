@@ -8,67 +8,15 @@ import { MessageList } from "./messages/MessageList"
 import { MessageProvider } from "./messages/MessageProvider"
 import { MessageForm } from "./messages/MessageForm"
 import { TaskProvider } from "./tasks/TaskProvider"
-import { TaskList } from "./tasks/TaskList"
-import { TaskForm } from "./tasks/TaskForm"
 import { FriendProvider } from "./friends/FriendProvider"
-<<<<<<< HEAD
-import { EventProvider } from "./events/EventProvider"
-=======
 import { TaskList } from "./tasks/TaskList"
->>>>>>> e7c2104444cbb30eff47401e009a4caf466f384b
 import { ArticleForm } from "./articles/ArticleForm"
 import { EventForm } from "./events/EventForm"
 
 export const ApplicationViews = () => {
   return (
     <>
-<<<<<<< HEAD
-
-      {/* ##### Articles ##### */}
-
-      <ArticleProvider>
-        <TaskProvider>
-          <MessageProvider>
-            <FriendProvider>
-              <EventProvider>
-
-                <Route exact path="/">
-                  <ArticleList />
-                  {/* Render the component for news articles */}
-                </Route>
-
-                <Route path="/articles/create">
-                  <ArticleForm />
-                </Route>
-
-              </EventProvider>
-            </FriendProvider>
-          </MessageProvider>
-        </TaskProvider>
-      </ArticleProvider>
-
-      {/* ##### Friends ##### */}
-
-      <ArticleProvider>
-        <TaskProvider>
-          <MessageProvider>
-            <FriendProvider>
-              <EventProvider>
-
-                <Route path="/friends">
-                  {/* Render the component for list of friends */}
-                </Route>
-
-              </EventProvider>
-            </FriendProvider>
-          </MessageProvider>
-        </TaskProvider>
-      </ArticleProvider>
-
-      {/* ##### Messages ##### */}
-=======
     {/* ##### Articles ##### */}
->>>>>>> e7c2104444cbb30eff47401e009a4caf466f384b
 
       <ArticleProvider>
         <TaskProvider>
@@ -76,69 +24,20 @@ export const ApplicationViews = () => {
             <FriendProvider>
               <EventProvider>
 
-                <Route path="/messages">
-                  {/* Render the component for the messages */}
-                  <MessageList />
-                </Route>
+        <Route exact path="/">
+          <ArticleList />        
+        {/* Render the component for news articles */}
+        </Route>
 
-                <Route path="/messages/create">
-                  {/* Render the component for the messages */}
-                  <MessageForm />
-                </Route>
-
-              </EventProvider>
-            </FriendProvider>
-          </MessageProvider>
-        </TaskProvider>
-      </ArticleProvider>
-
-
-      {/* ##### Tasks ##### */}
-
-
-      <ArticleProvider>
-        <TaskProvider>
-          <MessageProvider>
-            <FriendProvider>
-              <EventProvider>
-
-                <Route path="/tasks">
-                  <TaskList />
-                  {/* Render the component for the user's tasks */}
-                </Route>
-                <Route path="/tasks/create">
-                  {/* Render the component for the messages */}
-                  <TaskForm />
-                </Route>
+        <Route path="/articles/create">
+          <ArticleForm />
+        </Route>
 
               </EventProvider>
             </FriendProvider>
           </MessageProvider>
         </TaskProvider>
       </ArticleProvider>
-
-      {/* ##### Events ##### */}
-
-      <ArticleProvider>
-        <TaskProvider>
-          <MessageProvider>
-            <FriendProvider>
-              <EventProvider>
-
-                <Route path="/events">
-                  {/* Render the component for the user's events */}
-                </Route>
-
-              </EventProvider>
-            </FriendProvider>
-          </MessageProvider>
-        </TaskProvider>
-      </ArticleProvider>
-<<<<<<< HEAD
-    </>
-  )
-}
-=======
 
       
      {/* ##### Friends ##### */}
@@ -228,4 +127,3 @@ export const ApplicationViews = () => {
     </>
   )
 }
->>>>>>> e7c2104444cbb30eff47401e009a4caf466f384b
