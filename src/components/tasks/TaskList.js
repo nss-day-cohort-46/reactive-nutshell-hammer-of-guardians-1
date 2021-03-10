@@ -8,6 +8,8 @@ import { useHistory } from "react-router"
 export const TaskList = () => {
     const { tasks, getTasks } = useContext(TaskContext)
 
+    // const [task, setTasks] = useState([])
+
     const history = useHistory()
 
     useEffect(() => {

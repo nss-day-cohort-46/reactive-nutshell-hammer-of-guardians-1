@@ -1,22 +1,23 @@
+//created by
 import React, { useContext, useEffect, useState } from "react"
 import { TaskContext } from "./TaskProvider.js"
-import "./Task.css"
 import { useHistory } from 'react-router-dom';
+import "./Task.css"
 
 export const TaskForm = () => {
     const { addTask } = useContext(TaskContext)
 
     const [task, setTask] = useState({
         name: "",
-        dueDate: "",
+        date: "",
         userId: 0
     });
 
     const history = useHistory();
 
-    useEffect(() => {
-        getTasks()
-    }, [])
+    // useEffect(() => {
+    //     getTasks()
+    // }, [])
 
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array,
@@ -36,14 +37,15 @@ export const TaskForm = () => {
     }
 
     const handleClickSaveTask = (event) => {
-    console.log("fart")
-        if (taskId === 0) {
-            window.alert("Please select a task")
-        } else {
+        // if (taskId === 0) {
+        //     window.alert("Please select a task")
+        // } else {
+            event.preventDefault()
+            const userId = task.userId
         // event.preventDefault() //Prevents the browser from submitting the form
             addTask(task)
                 .then(() => history.push("/tasks"))
-        }
+        
     
     }
 
@@ -59,7 +61,7 @@ export const TaskForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="breed">Due Date: </label>
+                    <label htmlFor="date">Due Date: </label>
                     <input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Due Date" value={task.dueDate} />
                 </div>
             </fieldset>
