@@ -14,6 +14,7 @@ export const Nutshell = () => (
           return (
             <>
               <NavBar />
+              
               <ApplicationViews />
             </>
           )
