@@ -6,13 +6,18 @@ import { useHistory } from "react-router"
 
 export const EventList = () => {
     const { events, getEvents } = useContext(EventContext)
-    // const { events, setEvent } = useContext(EventContext)
+    // const { event, setEvent } = useContext(EventContext)
 
     const history = useHistory()
 
     useEffect(() => {
         getEvents()
     }, [])
+
+    // useEffect(() => {
+    //     const sortByDate = events.sort((a,b) => new Date(a.date) - new Date(b.date))
+    //     setEvent(sortByDate)
+    // }, [events])
 
     return (
         <>
