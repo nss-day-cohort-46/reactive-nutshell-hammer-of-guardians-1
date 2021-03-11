@@ -13,15 +13,22 @@ export const MessageList = () => {
     const [message, setMessages] = useState([])
 
     const history = useHistory();
+
+    // const timestamp = Date.now();
     
     // useEffect will call getMessages(), our dependency array will remain empty. This will not run again.
     useEffect(() => {
         console.log("MessageList: useEffect - getMessages")
         getMessages()
-        .then((response) => {
-            setMessages(response)
-          })
+        // .then((response) => {
+        //     setMessages(response)
+        //   })
     }, [])
+
+    useEffect(() => {
+        const sortByDate = messages.sort((a, b) => b.time - a.time)
+        setMessages(sortByDate)
+    }, [messages])
     
     // MessageList will return the html representation for our Messages page. 
     // Add Message button with onClick which will push us to /Messages/create
