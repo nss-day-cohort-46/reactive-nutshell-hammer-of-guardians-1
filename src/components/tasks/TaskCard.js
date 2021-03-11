@@ -33,7 +33,15 @@ export const TaskCard = ({ task }) => {
             .then(() => {
                 history.push("/tasks")
             })
-    }    
+    }  
+    
+    // const handleDelete = () => {
+    //     deleteTask(task.id)
+    //         .then(() => {
+    //             history.push("/tasks")
+    //         })
+    // } 
+
     return (
         <section className="taskCard">
             <h3 className="taskName">{task.name}</h3>
@@ -43,6 +51,7 @@ export const TaskCard = ({ task }) => {
                 <input type="checkbox" id="taskComplete" onChange={handleControlledInputChange} 
                 required autoFocus className="form-control" value={task.isComplete} defaultChecked={task.isComplete ? true : false} />
             </div>
+            <button onClick={updateTask}> edit </button>
             <button onClick={handleDelete}> delete </button>
         </section>
     )

@@ -14,6 +14,10 @@ export const TaskForm = () => {
         userId: currentUser
     });
 
+    // useEffect(() => {
+    //     getTasks()
+    // }, [])
+
     const history = useHistory();
   
     const handleControlledInputChange = (event) => {
