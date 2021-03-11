@@ -13,11 +13,22 @@ Include a delete button that is tied to each articles id.
 Our delete button will include an onClick which calls our articleDelete Function.
  */
 
-import React from "react"
+import React, { useContext } from "react"
+import { useHistory } from "react-router"
 import "./Article.css"
 import { ArticleContext } from "./ArticleProvider"
 
 export const ArticleCard = ({article}) => {
+
+    const { deleteArticle } = useContext(ArticleContext)
+    const history = useHistory()
+
+    const handleDelete = () => {
+        deleteArticle(article.id)
+        .then(() => {
+            history.push("/")
+        })
+    }
 
     return (
         <section className="articleCard">
@@ -25,6 +36,7 @@ export const ArticleCard = ({article}) => {
         <div className="articleTimestamp">{article.timestamp}</div>
         <div className="articleSynopsis">{article.synopsis}</div>
     <a className="articleUrl" href={article.url}>Full Article</a>
+    <button className="articleDeleteButton" onClick={handleDelete}>Delete</button>
 
     </section>
     )

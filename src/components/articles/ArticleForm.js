@@ -9,13 +9,13 @@ export const ArticleForm = () => {
 
     const [article, setArticle] = useState({
         id: 0,
-        userId: 0,
+        userId: parseInt(sessionStorage.getItem("nutshell_user")),
         url: "",
         title: "",
         synopsis: "",
         timestamp: ""
     })
-
+    const {articleId} = useParams()
     const history = useHistory()
 
     useEffect(() => {
