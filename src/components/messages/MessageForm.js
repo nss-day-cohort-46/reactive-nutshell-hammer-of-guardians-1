@@ -8,12 +8,9 @@ import { useHistory } from "react-router-dom"
 
 export const MessageForm = () => {
     const { addMessage, getMessages } = useContext(MessageContext)
-<<<<<<< HEAD
 
-    const timestamp = Date.now();
-=======
+    const timestamp = new Date().toLocaleString()
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
->>>>>>> main
 
     const [message, setMessage] = useState({
         "id": "",
@@ -47,7 +44,7 @@ export const MessageForm = () => {
         addMessage({
           userId: message.userId,
           text: message.text,
-          timestamp: message.timestamp
+          time: message.time
         })
 
         .then(() => history.push("/messages"))
