@@ -7,7 +7,7 @@ import "./Message.css"
 
 // Make MessageList function, import Message Context, useContext(MessageContext), bring in messages, getMessages
 export const MessageList = () => {
-    const { messages, getMessages } = useContext(MessageContext)
+    const { messages, getMessages, deleteMessage } = useContext(MessageContext)
     
     // Setting state to an empty array, declaring our state variable of Message, and our callback function of setMessages
     const [message, setMessages] = useState([])
@@ -20,20 +20,23 @@ export const MessageList = () => {
     useEffect(() => {
         console.log("MessageList: useEffect - getMessages")
         getMessages()
-        // .then((response) => {
-        //     setMessages(response)
-        //   })
     }, [])
 
     useEffect(() => {
         const sortByDate = messages.sort((a, b) => b.time - a.time)
         setMessages(sortByDate)
     }, [messages])
+
+    const handleDelete = () => {
+        deleteMessage(message.id)
+        .then(() => {
+            history.push("/messages")
+        })
+    }
     
     // MessageList will return the html representation for our Messages page. 
     // Add Message button with onClick which will push us to /Messages/create
     // Message.map() for every Message return MessageCard with a key of {Message.id} and Message={Message}.
-    
     return (
         <div className="messages__component">
             {console.log("MessageList: Render", messages)}
@@ -41,7 +44,10 @@ export const MessageList = () => {
             <div className="messages">
 
                 {messages.map(message => {
-                    return <MessageCard key={message.id} message={message} />
+                    return <div className="message">
+                    <MessageCard key={message.id} message={message} />
+                    <button className="btn btn-primary" onClick={handleDelete}> Delete </button>
+                    </div>
                 })}
 
             </div>

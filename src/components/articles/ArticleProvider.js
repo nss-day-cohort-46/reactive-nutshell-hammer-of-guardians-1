@@ -53,7 +53,7 @@ export const ArticleProvider = (props) => {
 
     return (
        <ArticleContext.Provider value={{
-           articles, getArticles, addArticle, deleteArticle, updateArtical
+           articles, getArticles, addArticle, deleteArticle, updateArticle
        }}>
            {props.children}
        </ArticleContext.Provider>
