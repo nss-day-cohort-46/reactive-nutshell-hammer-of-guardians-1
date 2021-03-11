@@ -21,7 +21,10 @@
       padding: 1em;
       border: 1px solid rgb(167, 171, 235);
       background-color: whitesmoke;
+      display: flex;
+      justify-content: space-between;
     }
+
     h2 {
         text-align: center;
     }
