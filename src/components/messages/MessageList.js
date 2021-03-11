@@ -11,11 +11,8 @@ export const MessageList = () => {
     
     // Setting state to an empty array, declaring our state variable of Message, and our callback function of setMessages
     const [message, setMessages] = useState([])
-
     const history = useHistory();
 
-    // const timestamp = Date.now();
-    
     // useEffect will call getMessages(), our dependency array will remain empty. This will not run again.
     useEffect(() => {
         console.log("MessageList: useEffect - getMessages")
@@ -27,8 +24,9 @@ export const MessageList = () => {
         setMessages(sortByDate)
     }, [messages])
 
-    const handleDelete = () => {
-        deleteMessage(message.id)
+    const handleDelete = (id) => {
+        console.log("this is the delete button", id)
+        deleteMessage(id)
         .then(() => {
             history.push("/messages")
         })
@@ -42,14 +40,13 @@ export const MessageList = () => {
             {console.log("MessageList: Render", messages)}
             <h2>Messages</h2>
             <div className="messages">
-
                 {messages.map(message => {
-                    return <div className="message">
-                    <MessageCard key={message.id} message={message} />
-                    <button className="btn btn-primary" onClick={handleDelete}> Delete </button>
-                    </div>
+                    return (
+                    <div className="message">
+                        <MessageCard key={message.id} message={message} />
+                        <button className="btn btn-primary" onClick={() => handleDelete(message.id)}> Delete </button>
+                    </div>)
                 })}
-
             </div>
             <button className="btn btn-primary" onClick={() => { history.push("/messages/create") }}>
                 Add Message
