@@ -30,3 +30,14 @@
   .articleButtonDiv {
       text-align: center;
   }
+
+  .articleDeleteButton {
+    border-radius: 7px;
+    background-color: darkslategray;
+    color: lightgrey;
+    margin: 7px 0 0 0;
+  }
+
+  .articleDeleteButton:hover {
+    background-color: cornflowerblue;
+  }

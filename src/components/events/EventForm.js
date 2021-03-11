@@ -4,19 +4,30 @@ import { useHistory, useParams } from "react-router-dom";
 import "./Event.css"
 
 export const EventForm = () => {
-    const { addEvent, getEvents } = useContext(EventContext)
+    const { addEvent, getEvents, updateEvent, getEventById, saveEvent } = useContext(EventContext)
+    const {eventId} = useParams()
+    // const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const [events, setEvent] = useState({
         name: "",
         location: "",
-        date: ""
+        date: "",
+        // userId: currentUserId
     })
 
     const history = useHistory()
 
     useEffect(() => {
         getEvents()
-    }, [])
+        .then(() => {
+          if (eventId){
+            getEventById(eventId)
+            .then(event => {
+              setEvent(event)
+            })
+          }
+        })
+      }, [])
 
     const handleControlledInputChange = (event) => {
         const newEvent = { ...events }
@@ -38,9 +49,24 @@ export const EventForm = () => {
         }        
     }
 
+    // const handleSaveEvent = (events) => {
+    //     if (eventId){
+    //       updateEvent({
+    //         name: events.name,
+    //         location: events.location,
+    //         date: events.date,
+    //         id: events.id
+    //       })
+    //       .then(history.push("/events"))
+    //     } else {
+    //       saveEvent(events)
+    //       .then(history.push("/events"))
+    //     }
+    //   }
+
     return (
         <form className="eventForm">
-            <h2 className="newEvent">New Event</h2>
+            <h2 className="evntForm__title">{eventId ? "Edit Event" : "Add Event"}</h2>
             <fieldset>
                 <div>
                     <label htmlFor="name">Event: </label>
@@ -58,7 +84,8 @@ export const EventForm = () => {
             <button className="btn btn-primary"
               onClick={event => {
                 event.preventDefault()
-              handleClickSaveEvent()
+                handleClickSaveEvent()
+                // handleSaveEvent()
             }}>
               Save Event
             </button>
