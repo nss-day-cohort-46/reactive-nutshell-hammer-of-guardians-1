@@ -34,7 +34,6 @@ export const TaskCard = ({ task }) => {
                 history.push("/tasks")
             })
     }
-
     return (
         <section className="taskCard">
             <h3 className="taskName">{task.name}</h3>

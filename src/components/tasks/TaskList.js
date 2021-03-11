@@ -8,15 +8,19 @@ import { useHistory } from "react-router"
 
 export const TaskList = () => {
     const { tasks, getTasks } = useContext(TaskContext)
+
+    //grab userId from key nutshell_user
     let currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
     useEffect(() => {
         getTasks()
     }, [])
-
+    
+    //only grab task with userId === current userId
     let userTasks = tasks.filter(task => currentUser === task.userId)
     const history = useHistory()
 
 
+    //on line 29 check to see if task is not complete. if so, render any task that is not complete. completed tasks will not appear on DOM
     return (
         <>
             <h3 className="taskHeader"> <p>Tasks</p> </h3>

@@ -15,11 +15,7 @@ export const TaskForm = () => {
     });
 
     const history = useHistory();
-
-    // useEffect(() => {
-    //     getTasks()
-    // }, [])
-
+  
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
@@ -29,7 +25,7 @@ export const TaskForm = () => {
         if (event.target.id.includes("Id")) {
             selectedVal = parseInt(selectedVal)
         }
-        /* Animal is an object with properties.
+        /* task is an object with properties.
         Set the property to the new value
       using object bracket notation. */
         newTask[event.target.id] = selectedVal
@@ -38,9 +34,6 @@ export const TaskForm = () => {
     }
 
     const handleClickSaveTask = (event) => {
-        // if (taskId === 0) {
-        //     window.alert("Please select a task")
-        // } else {
             event.preventDefault()
             const userId = task.userId
         // event.preventDefault() //Prevents the browser from submitting the form
