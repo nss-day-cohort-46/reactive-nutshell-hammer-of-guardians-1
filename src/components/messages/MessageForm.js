@@ -9,11 +9,11 @@ import { useHistory } from "react-router-dom"
 
 export const MessageForm = () => {
     const { addMessage, getMessages } = useContext(MessageContext)
-
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const [message, setMessage] = useState({
         "id": "",
-        "userId": 0,
+        "userId": currentUser,
         "text": "",
         "time": ""
     });
