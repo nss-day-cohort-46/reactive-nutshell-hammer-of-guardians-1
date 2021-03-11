@@ -33,7 +33,7 @@ export const TaskCard = ({ task }) => {
             .then(() => {
                 history.push("/tasks")
             })
-    }
+    }    
     return (
         <section className="taskCard">
             <h3 className="taskName">{task.name}</h3>
