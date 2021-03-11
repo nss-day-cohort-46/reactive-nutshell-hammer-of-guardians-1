@@ -4,18 +4,19 @@ import { MessageContext } from "../messages/MessageProvider"
 import { useHistory } from "react-router-dom"
 
 // Necessary Context, css, history and params from react router dom.
-
 // export MessageForm function, grab get Message components from Message context.
 
 export const MessageForm = () => {
     const { addMessage, getMessages } = useContext(MessageContext)
+
+    const timestamp = new Date().toLocaleString()
     const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const [message, setMessage] = useState({
         "id": "",
         "userId": currentUser,
         "text": "",
-        "time": ""
+        "time": timestamp
     });
 
     const history = useHistory();
@@ -43,7 +44,7 @@ export const MessageForm = () => {
         addMessage({
           userId: message.userId,
           text: message.text,
-          timestamp: message.timestamp
+          time: message.time
         })
 
         .then(() => history.push("/messages"))
