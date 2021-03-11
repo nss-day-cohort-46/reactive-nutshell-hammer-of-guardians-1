@@ -12,6 +12,7 @@ export const MessageList = () => {
     // Setting state to an empty array, declaring our state variable of Message, and our callback function of setMessages
     const [message, setMessages] = useState([])
     const history = useHistory();
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     // useEffect will call getMessages(), our dependency array will remain empty. This will not run again.
     useEffect(() => {
@@ -31,6 +32,14 @@ export const MessageList = () => {
             history.push("/messages")
         })
     }
+
+    const UserDelete = (message) => {
+        if (currentUser === message.userId) {
+            return (
+                <button className="btn btn-primary" onClick={() => handleDelete(message.id)}> Delete </button>
+            )
+        }
+    }
     
     // MessageList will return the html representation for our Messages page. 
     // Add Message button with onClick which will push us to /Messages/create
@@ -44,7 +53,7 @@ export const MessageList = () => {
                     return (
                     <div className="message">
                         <MessageCard key={message.id} message={message} />
-                        <button className="btn btn-primary" onClick={() => handleDelete(message.id)}> Delete </button>
+                        {UserDelete(message)}
                     </div>)
                 })}
             </div>
