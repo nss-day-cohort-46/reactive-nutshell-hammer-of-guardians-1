@@ -30,3 +30,8 @@
 .eventButtonDiv {
     text-align: center;
   }
+
+.removeEventButton {
+  background-color: rgb(1 74 53);
+  color: #fff249;
+}

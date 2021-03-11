@@ -6,13 +6,13 @@ import "./Event.css"
 export const EventForm = () => {
     const { addEvent, getEvents, updateEvent, getEventById, saveEvent } = useContext(EventContext)
     const {eventId} = useParams()
-    // const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
+    const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const [events, setEvent] = useState({
         name: "",
         location: "",
         date: "",
-        // userId: currentUserId
+        userId: currentUserId
     })
 
     const history = useHistory()

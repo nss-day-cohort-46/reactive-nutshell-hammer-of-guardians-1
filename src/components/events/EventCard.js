@@ -11,7 +11,7 @@ export const EventCard = ({event}) => {
     const handleDelete = () => {
         deleteEvent(event.id)
         .then(() => {
-            history.push("/")
+            history.push("/events")
         })
     }
 
@@ -20,7 +20,7 @@ export const EventCard = ({event}) => {
             <h3 className="eventName">{event.name}</h3>
             <div className="eventLocation">{event.location}</div>
             <div className="eventDate">{event.date}</div>
-            <button onClick={handleDelete}>Remove Event</button>
+                <button className="removeEventButton" onClick={handleDelete}>Remove Event</button>
         </section>
     )
 }
