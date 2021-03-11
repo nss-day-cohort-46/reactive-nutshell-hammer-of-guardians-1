@@ -15,9 +15,9 @@ Our delete button will include an onClick which calls our messageDelete Function
 import React from "react"
 import "./Message.css"
 
-export const MessageCard = ({ message, user }) => (
+export const MessageCard = ({ message }) => (
     <section className="message">
-        <div className="message__user">{user?.name}</div>
+        <div className="message__user">{message.user.name}</div>
         <div className="message__time">{message.time}</div>
         <div className="message__text">{message.text}</div>
     </section>

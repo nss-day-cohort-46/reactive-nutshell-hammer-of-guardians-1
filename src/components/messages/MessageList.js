@@ -31,11 +31,12 @@ export const MessageList = () => {
         <div className="messages__component">
             {console.log("MessageList: Render", messages)}
             <h2>Messages</h2>
-
             <div className="messages">
+
                 {messages.map(message => {
-                    return <MessageCard key={message.id} message={message} user={message.user} />
+                    return <MessageCard key={message.id} message={message} />
                 })}
+
             </div>
             <button className="btn btn-primary" onClick={() => { history.push("/messages/create") }}>
                 Add Message
