@@ -21,6 +21,7 @@ import "./Article.css"
 import { useHistory } from "react-router"
 
 export const ArticleList = () => {
+    
     const { articles, getArticles } = useContext(ArticleContext)
 
     const history = useHistory()
