@@ -32,8 +32,15 @@
   }
 
 .removeEventButton {
-  background-color: rgb(1 74 53);
-  color: #cfffb7;
+  background-color: rgb(24 135 255);
+  color: #faffff;
   border-radius: 9px;
-  border-color: #9effef;
+  border-color: #baeeff;
+}
+
+.editButton {
+  background-color: rgb(24 135 255);
+  color: #faffff;
+  border-radius: 9px;
+  border-color: #baeeff;
 }

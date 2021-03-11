@@ -59,14 +59,14 @@ export const EventForm = () => {
     //       })
     //       .then(history.push("/events"))
     //     } else {
-    //       saveEvent(events)
+    //       handleSaveEvent(events)
     //       .then(history.push("/events"))
     //     }
     //   }
 
     return (
         <form className="eventForm">
-            <h2 className="evntForm__title">{eventId ? "Edit Event" : "Add Event"}</h2>
+            <h2 className="eventForm__title">{eventId ? "Edit Event" : "Add Event"}</h2>
             <fieldset>
                 <div>
                     <label htmlFor="name">Event: </label>
