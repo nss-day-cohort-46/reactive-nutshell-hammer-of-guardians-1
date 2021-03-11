@@ -9,7 +9,6 @@ Fixes # (issue)
 ```
 git fetch --all
 git checkout <branch-name>
-serve
 ```
 
 # Checklist:
