@@ -33,5 +33,7 @@
 
 .removeEventButton {
   background-color: rgb(1 74 53);
-  color: #fff249;
+  color: #cfffb7;
+  border-radius: 9px;
+  border-color: #9effef;
 }
