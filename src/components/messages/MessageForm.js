@@ -8,12 +8,16 @@ import { useHistory } from "react-router-dom"
 
 export const MessageForm = () => {
     const { addMessage, getMessages } = useContext(MessageContext)
+<<<<<<< HEAD
 
     const timestamp = Date.now();
+=======
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
+>>>>>>> main
 
     const [message, setMessage] = useState({
         "id": "",
-        "userId": 0,
+        "userId": currentUser,
         "text": "",
         "time": timestamp
     });
@@ -38,7 +42,7 @@ export const MessageForm = () => {
     const handleClickSaveMessage = (event) => {
       event.preventDefault()
       if (message.text === "" ) {
-        window.alert("Message Empty")
+        window.alert("Please enter a message")
     } else { 
         addMessage({
           userId: message.userId,
@@ -59,8 +63,7 @@ export const MessageForm = () => {
                   <textarea cols="10" rows="5" name="text" id="text" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="New Message" value={message.text}></textarea>
               </div>
           </fieldset>
-          <button className="btn btn-primary"
-            onClick={handleClickSaveMessage}>
+          <button className="btn btn-primary" onClick={handleClickSaveMessage}>
             Save Message
           </button>
       </form>
