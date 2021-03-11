@@ -5,12 +5,12 @@ export const TaskContext = createContext()
 
 export const TaskProvider = (props) => {
 
-    const [ tasks, setTasks ] = useState([])
+    const [tasks, setTasks] = useState([])
 
     const getTasks = () => {
-        return fetch ("http://localhost:8088/tasks")
-        .then(response => response.json())
-        .then(setTasks)
+        return fetch("http://localhost:8088/tasks")
+            .then(response => response.json())
+            .then(setTasks)
     }
 
     const addTask = taskObj => {
@@ -20,27 +20,27 @@ export const TaskProvider = (props) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(taskObj)
-    })
-    .then(getTasks)
+        })
+            .then(getTasks)
     }
-    
-    const deleteTask = taskId => {
+
+    const deleteTask = (taskId) => {
         return fetch(`http://localhost:8088/tasks/${taskId}`, {
             method: "DELETE"
         })
-        .then(getTasks)
+            .then(getTasks)
     }
 
     const updateTask = task => {
         return fetch(`http://localhost:8088/tasks/${task.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(task)
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(task)
         })
-          .then(getTasks)
-      }
+            .then(getTasks)
+    }
 
 
     return (
@@ -50,4 +50,4 @@ export const TaskProvider = (props) => {
             {props.children}
         </TaskContext.Provider>
     )
-}      
+}

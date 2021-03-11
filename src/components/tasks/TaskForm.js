@@ -1,4 +1,4 @@
-//created by
+//created by nicole
 import React, { useContext, useEffect, useState } from "react"
 import { TaskContext } from "./TaskProvider.js"
 import { useHistory } from 'react-router-dom';
@@ -6,11 +6,12 @@ import "./Task.css"
 
 export const TaskForm = () => {
     const { addTask } = useContext(TaskContext)
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const [task, setTask] = useState({
         name: "",
         date: "",
-        userId: 0
+        userId: currentUser
     });
 
     const history = useHistory();
