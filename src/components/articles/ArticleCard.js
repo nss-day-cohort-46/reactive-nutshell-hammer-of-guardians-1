@@ -36,7 +36,7 @@ export const ArticleCard = ({article}) => {
         <div className="articleTimestamp">{article.timestamp}</div>
         <div className="articleSynopsis">{article.synopsis}</div>
     <a className="articleUrl" href={article.url}>Full Article</a>
-    <button onClick={handleDelete}>Delete</button>
+    <button className="articleDeleteButton" onClick={handleDelete}>Delete</button>
 
     </section>
     )
