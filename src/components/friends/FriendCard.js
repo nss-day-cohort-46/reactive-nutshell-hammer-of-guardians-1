@@ -3,7 +3,8 @@ import "./Friend.css"
 
 export const MessageCard = ({ friend }) => (
     <section className="friend__card">
-        <div className="friend__user">{friend.user.name}</div>
+        <h2>${user.name}</h2>
+        <div className="friend__isfriend">{isFriend}</div>
         <div className="friend__time">{friend.user.email}</div>
     </section>
 )
