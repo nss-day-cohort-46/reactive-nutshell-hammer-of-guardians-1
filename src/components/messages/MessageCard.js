@@ -16,7 +16,7 @@ import React from "react"
 import "./Message.css"
 
 export const MessageCard = ({ message }) => (
-    <section className="message">
+    <section className="message__card">
         <div className="message__user">{message.user.name}</div>
         <div className="message__time">{message.time}</div>
         <div className="message__text">{message.text}</div>
