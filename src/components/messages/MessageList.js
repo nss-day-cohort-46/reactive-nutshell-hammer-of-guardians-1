@@ -13,6 +13,8 @@ export const MessageList = () => {
     const [message, setMessages] = useState([])
 
     const history = useHistory();
+
+    const timestamp = Date.now();
     
     // useEffect will call getMessages(), our dependency array will remain empty. This will not run again.
     useEffect(() => {
