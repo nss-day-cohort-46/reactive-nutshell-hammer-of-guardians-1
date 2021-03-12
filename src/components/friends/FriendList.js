@@ -1,20 +1,22 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useHistory } from "react-router-dom"
-import { UserContext } from "../users/UserProvider"
 import { FriendContext } from "./FriendProvider"
+import { FriendCard } from "./FriendCard"
 
 export const FriendList = () => {
     const { friends, getFriends } = useContext(FriendContext)
-    const { users, getUsers } = useContext(UserContext)
 
     useEffect(() => {
-        getUsers()
-        .then(getFriends)
+        getFriends(sessionUser)
     }, [])
 
-    const history = useHistory()
+    const sessionUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
-    const [ users, setUsers ] = useState([])
-
-
+    return (
+        <div className="friendList">
+            {friends.map(friend => {
+                return <FriendCard key={friend.id}
+                    friend={friend} />        
+            })}
+        </div>
+    )
 }
