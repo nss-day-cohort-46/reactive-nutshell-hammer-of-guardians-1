@@ -9,6 +9,7 @@ import { MessageProvider } from "./messages/MessageProvider"
 import { MessageForm } from "./messages/MessageForm"
 import { TaskProvider } from "./tasks/TaskProvider"
 import { FriendProvider } from "./friends/FriendProvider"
+import { FriendList } from "./friends/FriendList"
 import { TaskList } from "./tasks/TaskList"
 import { ArticleForm } from "./articles/ArticleForm"
 import { EventForm } from "./events/EventForm"
@@ -55,6 +56,7 @@ export const ApplicationViews = () => {
 
          <Route path="/friends">
            {/* Render the component for list of friends */}
+           <FriendList />
          </Route>
 
                </EventProvider>
