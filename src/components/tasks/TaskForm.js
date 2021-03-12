@@ -1,4 +1,4 @@
-//created by
+//created by nicole
 import React, { useContext, useEffect, useState } from "react"
 import { TaskContext } from "./TaskProvider.js"
 import { useHistory } from 'react-router-dom';
@@ -6,19 +6,20 @@ import "./Task.css"
 
 export const TaskForm = () => {
     const { addTask } = useContext(TaskContext)
+    const currentUser = parseInt(sessionStorage.getItem("nutshell_user"))
 
     const [task, setTask] = useState({
         name: "",
         date: "",
-        userId: 0
+        userId: currentUser
     });
-
-    const history = useHistory();
 
     // useEffect(() => {
     //     getTasks()
     // }, [])
 
+    const history = useHistory();
+  
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array,
         always create a copy, make changes, and then set state.*/
@@ -28,7 +29,7 @@ export const TaskForm = () => {
         if (event.target.id.includes("Id")) {
             selectedVal = parseInt(selectedVal)
         }
-        /* Animal is an object with properties.
+        /* task is an object with properties.
         Set the property to the new value
       using object bracket notation. */
         newTask[event.target.id] = selectedVal
@@ -37,9 +38,6 @@ export const TaskForm = () => {
     }
 
     const handleClickSaveTask = (event) => {
-        // if (taskId === 0) {
-        //     window.alert("Please select a task")
-        // } else {
             event.preventDefault()
             const userId = task.userId
         // event.preventDefault() //Prevents the browser from submitting the form
