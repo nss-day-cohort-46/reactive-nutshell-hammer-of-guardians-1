@@ -5,63 +5,78 @@ import { ArticleContext } from "./ArticleProvider"
 
 export const ArticleForm = () => {
     
-    const { articles, getArticles, addArticle } = useContext(ArticleContext)
+    const { getArticles, addArticle, updateArticle, getArticleById } = useContext(ArticleContext)
+    const { articleId } = useParams()
+    const history = useHistory()
 
     const [article, setArticle] = useState({
-        id: 0,
         userId: parseInt(sessionStorage.getItem("nutshell_user")),
         url: "",
         title: "",
         synopsis: "",
         timestamp: ""
     })
-    const {articleId} = useParams()
-    const history = useHistory()
 
     useEffect(() => {
         getArticles()
+        if (articleId) {
+            getArticleById(articleId)
+            .then(article => {
+                setArticle(article)
+            })
+        }
     }, [])
+    
 
     const handleControlledInputChange = (event) => {
         const newArticle = { ...article }
-        newArticle[event.target.id] = event.target.value
-        setArticle(newArticle)
+            newArticle[event.target.id] = event.target.value
+            setArticle(newArticle)
     }
 
     const handleSaveArticle = () => {
-        if (article.url === "" || article.title === "" || article.synopsis === "" || article.timestamp === "" ) {
+        if (article.url === "" || article.title === "" || article.synopsis === "" ) {
             window.alert("Please complete all fields")
         } else {
-            addArticle({
-                userId: article.userId,
-                url: article.url,
-                title: article.title,
-                synopsis: article.synopsis,
-                timestamp: article.timestamp 
-            })
+           if(articleId){
+                updateArticle({
+                    userId: article.userId,
+                    title: article.title,
+                    synopsis: article.synopsis,
+                    timestamp: article.timestamp,
+                    url: article.url,
+                    id: article.id
+                })
             .then(() => history.push("/")) 
+        } else {
+            addArticle({
+                    title: article.title,
+                    synopsis: article.synopsis,
+                    timestamp: article.timestamp,
+                    url: article.url,
+                    id: article.id
+            })
+            .then(() => history.push("/"))
+        }
         }        
     }
 
+
     return (
         <form className="articleForm">
-            <h2 className="articleFromTitle">New Article</h2>
+            <h2 className="articleFromTitle">{articleId ? "Edit Article" : "Add Article"}</h2>
             <fieldset>
                 <div>
-                    <label htmlFor="title">Article title: </label>
-                    <input type="text" id="title" onChange={handleControlledInputChange} required className="form-control" placeholder="Article Title" value={article.title}></input>
+                    <label htmlFor="articleTitle">Article title: </label>
+                    <input type="text" name="articleTitle" id="title" onChange={handleControlledInputChange} required className="form-control" placeholder="Article Title" value={article.title}></input>
                 </div>
                 <div>
-                    <label htmlFor="date">Date: </label>
-                    <input type="date" id="timestamp" onChange={handleControlledInputChange} required className="form-control" value={article.timestamp}></input>
+                    <label htmlFor="articleSynopsis">Article Summary: </label>
+                    <input type="text" name="articleSynopsis" id="synopsis" onChange={handleControlledInputChange} required className="form-control" placeholder="Article Summary" value={article.synopsis}></input>
                 </div>
                 <div>
-                    <label htmlFor="synopsis">Article Summary: </label>
-                    <input type="text" id="synopsis" onChange={handleControlledInputChange} required className="form-control" placeholder="Article Summary" value={article.synopsis}></input>
-                </div>
-                <div>
-                    <label htmlFor="url">URL: </label>
-                    <input type="text" id="url" onChange={handleControlledInputChange} required className="form-control" placeholder="Article URL" value={article.url}></input>
+                    <label htmlFor="articleURL">URL: </label>
+                    <input type="text" name="articleURL" id="url" onChange={handleControlledInputChange} required className="form-control" placeholder="Article URL" value={article.url}></input>
                 </div>
             </fieldset>
             <button className="btn btn-primary"
@@ -69,7 +84,7 @@ export const ArticleForm = () => {
                 event.preventDefault()
               handleSaveArticle()
             }}>
-              Save Article
+              {articleId ? "Save Article" : "Add Article"}
             </button>
         </form>
     )

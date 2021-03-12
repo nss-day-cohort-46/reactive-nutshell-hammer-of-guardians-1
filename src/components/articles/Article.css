@@ -41,3 +41,14 @@
   .articleDeleteButton:hover {
     background-color: cornflowerblue;
   }
+  
+  .articleEditButton {
+    border-radius: 7px;
+    background-color: darkslategray;
+    color: lightgrey;
+    margin: 7px 0 0 0;
+  }
+
+  .articleEditButton:hover {
+    background-color: cornflowerblue;
+  }

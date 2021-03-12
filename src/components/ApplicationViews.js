@@ -33,6 +33,10 @@ export const ApplicationViews = () => {
           <ArticleForm />
         </Route>
 
+        <Route path="/articles/edit/:articleId(\d+)">
+          <ArticleForm />
+        </Route>
+
               </EventProvider>
             </FriendProvider>
           </MessageProvider>
