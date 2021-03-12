@@ -21,6 +21,12 @@ export const ArticleProvider = (props) => {
         .then(setArticles)
     }
 
+    const getArticleById = (articleId) => {
+        return fetch(`http://localhost:8088/articles/${articleId}`)
+        .then(res => res.json())
+    }
+
+
     const addArticle = articleObj => {
         return fetch("http://localhost:8088/articles", {
             method: "POST",
@@ -32,13 +38,13 @@ export const ArticleProvider = (props) => {
         .then(getArticles)
     }
 
-    const updateArtical = artical => {
-        return fetch(`http://localhost:8088/articals/${artical.id}`, {
+    const updateArticle = article => {
+        return fetch(`http://localhost:8088/articles/${article.id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(artical)
+          body: JSON.stringify(article)
         })
           .then(getArticles)
       }
@@ -53,7 +59,7 @@ export const ArticleProvider = (props) => {
 
     return (
        <ArticleContext.Provider value={{
-           articles, getArticles, addArticle, deleteArticle, updateArtical
+           articles, getArticles, addArticle, deleteArticle, updateArticle, getArticleById
        }}>
            {props.children}
        </ArticleContext.Provider>
