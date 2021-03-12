@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import "./Event.css"
 
 export const EventForm = () => {
-    const { addEvent, getEvents, updateEvent, getEventById, saveEvent } = useContext(EventContext)
+    const { addEvent, getEvents, getEventById, saveEvent, updateEvent } = useContext(EventContext)
     const {eventId} = useParams()
     const currentUserId = parseInt(sessionStorage.getItem("nutshell_user"))
 
@@ -39,30 +39,25 @@ export const EventForm = () => {
         if (events.name === "" || events.location === "" || events.date === "" ) {
             window.alert("Please complete all fields")
         } else {
-            addEvent({
+            if (eventId) {
+            updateEvent({
                 name: events.name,
                 location: events.location,
                 date: events.date,
                 userId: events.userId
             })
             .then(() => history.push("/events")) 
-        }        
+        }  else {
+            addEvent ({
+                name: events.name,
+                location: events.location,
+                date: events.date
+            })
+            .then(() => history.push("/events"))
+        }
+             
+        }
     }
-
-    // const handleSaveEvent = (events) => {
-    //     if (eventId){
-    //       updateEvent({
-    //         name: events.name,
-    //         location: events.location,
-    //         date: events.date,
-    //         id: events.id
-    //       })
-    //       .then(history.push("/events"))
-    //     } else {
-    //       handleSaveEvent(events)
-    //       .then(history.push("/events"))
-    //     }
-    //   }
 
     return (
         <form className="eventForm">
@@ -85,11 +80,9 @@ export const EventForm = () => {
               onClick={event => {
                 event.preventDefault()
                 handleClickSaveEvent()
-                // handleSaveEvent()
             }}>
               Save Event
             </button>
         </form>
     )
 }
-

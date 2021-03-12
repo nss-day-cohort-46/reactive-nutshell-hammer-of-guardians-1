@@ -119,6 +119,10 @@ export const ApplicationViews = () => {
           <EventForm />
         </Route>
 
+        <Route path="/events/edit/:eventId(\d+)">
+          <ArticleForm />
+        </Route>
+
               </EventProvider>
             </FriendProvider>
           </MessageProvider>
