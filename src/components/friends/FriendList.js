@@ -4,19 +4,19 @@ import { FriendCard } from "./FriendCard"
 
 export const FriendList = () => {
     const { friends, getFriends } = useContext(FriendContext)
+    const sessionId = parseInt(sessionStorage.getItem("nutshell_user"))
 
     useEffect(() => {
-        getFriends(sessionUser)
+        getFriends(sessionId)
     }, [])
 
-    const sessionUser = parseInt(sessionStorage.getItem("nutshell_user"))
-
     return (
-        <div className="friendList">
-            {friends.map(friend => {
-                return <FriendCard key={friend.id}
-                    friend={friend} />        
-            })}
+        <div className="friends__component">
+        <h2>Friends</h2>
+            <div className="friends">
+            {friends.map(friend => <FriendCard key={friend.id} friend={friend} />        
+            )}
+            </div>
         </div>
     )
 }

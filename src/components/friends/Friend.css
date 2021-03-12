@@ -1,0 +1,47 @@
+.friends__component {
+    margin: 20px;
+}
+
+.friends {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-around;
+    text-align: left;
+    margin-left: 20px;
+  }
+
+  .friend:hover {
+    background-color: rgb(173, 180, 204);
+    border: rgb(29, 29, 29) solid 1px;
+  }
+  
+  .friend {
+      border-radius: 30px;
+      margin: 1em 10em;
+      padding: 1em;
+      border: 1px solid rgb(167, 171, 235);
+      background-color: whitesmoke;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    
+  .friend__user {
+    padding: 10px 0 0 0;
+    font-size: 20px;
+  }
+
+.btn-primary {
+      text-align: center;
+      margin: 1em 1em 1em 12em;
+  }
+
+  .friendForm {
+    margin: 1em 10em;
+    padding: 1em;
+  }
+
+  .form-group {
+    margin: 1em 10em;
+  }
